@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+.slogan {
+  font-size: 35px;
+}
+
+.title {
+  font-family: "Montserrat";
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  letter-spacing: 1px;
+}
+
+.titleheader {
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  font-family: "Montserrat", sans-serif;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 120px;
+  line-height: 0.75;
+  margin: 10px 0;
+}
+
+.btn {
+  text-align: center;
+}
+
+.startbtn {
+  background-color: white;
+  padding: 1em;
+  color: #303030;
+  font-size: 1em;
+  border: 2px solid #303030;
+  text-decoration: none;
+}
+.startbtn:hover {
+  background-color: #303030;
+  border: 2px solid #303030;
+  color: white;
+}
