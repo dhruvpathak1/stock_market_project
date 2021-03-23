@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Basic Alpha Vantage script with user data entry">
+  <meta name="keywords" content="Alpha Vantage,predIQtiv,JavaScript,GitHub">
+  <meta name="date" content="2018-01-14">
+  <title>Alpha Vantage Cookbook ~ #2 Get Data Basic Interactive</title>
+  <style>
+    /* Copyright (c) 2018 predIQtiv. MIT License */
+
+    body {
+      font: 12pt monospace;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    a {
+      color: crimson;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      background-color: yellow;
+      color: #aaa;
+      text-decoration: underline
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+</head>
+
+<body>
+
+  <h3>
+    Search
+  </h3>
+
+  <p>Name: &nbsp;<input id=inpSymbol value='MSFT'></p>
+  <p><button onclick=getAlphaVantagesymbol();>get Alpha Vantage symbol</button></p>
+
+  <select id="sel">
+    <option value="">-- Select --</option>
+  </select>
+  <p><button onclick=getAlphaVantagedata();>get Alpha Vantage Data</button>
+    <button onclick=save();>Add to watchlist</button>
+  </p>
+  <table id="demo"></table>
+  <p id="reset"></p>
+
+  <script>
+    // Thanks to http://www.alphavantage.co/
+
+    /*
+    Remember to upate the API key field with your key
+    Get your key here: https://www.alphavantage.co/support/#api-key
+    'Demo' API Key works only for exact copies of the demos in the documentation
+    */
+
+
+    const url = 'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=demo';
+    // https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=demo
+    localStorage.clear();
+    var symbl="";
+    var data="";
+    var name="";
+
+    function getAlphaVantagesymbol() {
+
+      const apiKey = "SUXUZFCXQ49QTM2I";
+
+      const symbol = inpSymbol.value;
+
+      const url = 'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=' + symbol + '&apikey=' + apiKey;
+
+      requestsymbol(url);
+
+    }
+
+
+    function requestsymbol(url) {
+
+      var obj, dbParam, xmlhttp, myObj, x, txt = "";
+      obj = { table: "stock", limit: 20 };
+      dbParam = JSON.stringify(obj);
+      xmlhttp = new XMLHttpRequest();
+      /*xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          myObj = JSON.parse(this.responseText);
+          txt += "<table border='1'>"
+          for (x in myObj) {
+            txt += "<tr><td>" + myObj[x].open + "</td></tr>";
+          }
+          txt += "</table>"
+          document.getElementById("demo").innerHTML = txt;
+        }
+      };*/
+      xmlhttp.open('GET', url, true);
+      xmlhttp.onerror = function (xmlhttp) { console.log('error:', xmlhttp); };
+      xmlhttp.onprogress = function (xmlhttp) { console.log('bytes loaded:', xmlhttp.loaded); }; // or something
+      xmlhttp.onload = callback;
+      xmlhttp.send(null);
+
+      function callback(xmlhttp) {
+
+        let response, json, lines;
+
+        response = xmlhttp.target.response;
+        var x = document.getElementById('demo');
+        //demo.innerText = response;
+    
+        json = JSON.parse(response);
+
+        // console.log('json', json);
+
+        // console.log(json["Time Series (Daily)"]);
+        var sel = document.getElementById("sel");
+        sel.innerHTML="--Select--";
+        for (var key in json["bestMatches"]) {
+          var val = json["bestMatches"][key];
+        //   var option = document.createElement("option");
+        //   option.value=val["2. name"];
+        //   sel.options.add(option);
+        //   sel.appendChild(option);
+        
+        sel.innerHTML = sel.innerHTML +
+                '<option value="' + val["1. symbol"] +" "+ val["2. name"]+ '">' + val["2. name"] +"("+val["4. region"]+")"+ '</option>';
+        }
+        console.log(sel);
+      }
+
+    }
+    function getAlphaVantagedata() {
+        data= sel.options[sel.selectedIndex].value;
+        data=data.split(" ");
+        symbl=data[0];
+        var demo = document.getElementById("demo");
+        demo.innerHTML=" ";
+
+    const apiKey = "SUXUZFCXQ49QTM2I";
+
+    const symbol = symbl;
+
+    const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + symbol + '&interval=1min&apikey=' + apiKey;
+
+    requestFile(url);
+
+    }
+
+    function requestFile(url) {
+
+    var obj, dbParam, xmlhttp, myObj, x, txt = "";
+    obj = { table: "stock", limit: 20 };
+    dbParam = JSON.stringify(obj);
+    xmlhttp = new XMLHttpRequest();
+    /*xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        txt += "<table border='1'>"
+        for (x in myObj) {
+        txt += "<tr><td>" + myObj[x].open + "</td></tr>";
+        }
+        txt += "</table>"
+        document.getElementById("demo").innerHTML = txt;
+    }
+    };*/
+    xmlhttp.open('GET', url, true);
+    xmlhttp.onerror = function (xmlhttp) { console.log('error:', xmlhttp); };
+    xmlhttp.onprogress = function (xmlhttp) { console.log('bytes loaded:', xmlhttp.loaded); }; // or something
+    xmlhttp.onload = callback1;
+    xmlhttp.send(null);
+
+    function callback1(xmlhttp) {
+
+        let response, json, lines;
+
+        response = xmlhttp.target.response;
+        var x = document.getElementById('demo');
+        //demo.innerText = response;
+
+        json = JSON.parse(response);
+
+        // console.log('json', json);
+
+        // console.log(json["Time Series (Daily)"]);
+
+        var flag = 0;
+
+        var demo = document.getElementById("demo");
+
+        var trh = document.createElement('tr');
+        var th0 = document.createElement('th');
+        var th1 = document.createElement('th');
+        var th2 = document.createElement('th');
+        var th3 = document.createElement('th');
+        var th4 = document.createElement('th');
+        var th5 = document.createElement('th');
+
+        th0.innerHTML = "Date";
+        th1.innerHTML = "Open";
+        th2.innerHTML = "High";
+        th3.innerHTML = "Low";
+        th4.innerHTML = "Close";
+        th5.innerHTML = "Volume";
+
+        trh.appendChild(th0);
+        trh.appendChild(th1);
+        trh.appendChild(th2);
+        trh.appendChild(th3);
+        trh.appendChild(th4);
+        trh.appendChild(th5);
+        demo.appendChild(trh);
+        
+        for (var key in json["Time Series (Daily)"]) {
+            var val = json["Time Series (Daily)"][key];
+
+            var tr = document.createElement('tr');
+            var td0 = document.createElement('td');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+
+            td0.innerHTML = key;
+
+            td1.innerHTML = val["1. open"];
+            td2.innerHTML = val["2. high"];
+            td3.innerHTML = val["3. low"];
+            td4.innerHTML = val["4. close"];
+            td5.innerHTML = val["5. volume"];
+
+            tr.appendChild(td0);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            demo.appendChild(tr);
+
+
+            flag += 1;
+            if (flag == 5) {
+            break;
+            }
+        }
+
+        }
+
+    }
+    function save(){
+        data= sel.options[sel.selectedIndex].value;
+        data=data.split(" ");
+        symbl=data[0];
+        var firebaseConfig = {
+        apiKey: "AIzaSyC5CoVicRRoR1PVdqrZ1gyzF8Frl-LEyl8",
+        authDomain: "interestment-abd1e.firebaseapp.com",
+        projectId: "interestment-abd1e",
+        storageBucket: "interestment-abd1e.appspot.com",
+        messagingSenderId: "556429394380",
+        appId: "1:556429394380:web:7eeb865e358bc000d5dd69",
+        measurementId: "G-3B8GY1B70Y"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });  // to not get errors in console
+
+        for (index = 1; index < data.length; index++) { 
+            name=name+data[index]+" ";
+        }
+        db.collection("watchlist").add({
+            name: name,
+            symbol: symbl
+        })
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.innerHTML = 'Reset';
+        button.className = 'btn-styled';
+        
+        button.onclick = function() {
+            window.location.reload();
+        };
+        
+        var container = document.getElementById('reset');
+        container.appendChild(button);
+            }
+  </script>
+  <!-- <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyC5CoVicRRoR1PVdqrZ1gyzF8Frl-LEyl8",
+        authDomain: "interestment-abd1e.firebaseapp.com",
+        projectId: "interestment-abd1e",
+        storageBucket: "interestment-abd1e.appspot.com",
+        messagingSenderId: "556429394380",
+        appId: "1:556429394380:web:7eeb865e358bc000d5dd69",
+        measurementId: "G-3B8GY1B70Y"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });  // to not get errors in console
+    </script> -->
+  <!-- var coreName = document.createElement('div');
+  coreName.classList.add('coreName');
+  
+  coreName.innerHTML = items[i].fields.name;
+  coreInfo.appendChild(coreName); -->
+
+</body>
+
+</html>
