@@ -1,0 +1,61 @@
+body {
+  font-family: "Ubuntu", sans-serif;
+  color: #303030;
+}
+
+.title {
+  letter-spacing: 3.5px;
+  padding: 1em;
+  border-radius: 1em;
+  margin: 0;
+}
+
+.interest {
+  text-align: center;
+  padding: 1em;
+  color: #303030;
+  background-color: white;
+  border: 2px solid #303030;
+  margin: 1em;
+  font-weight: 50;
+  letter-spacing: 3.5px;
+  width: 200px;
+}
+
+.interest:hover {
+  background-color: #303030;
+  color: white;
+}
+
+.interest:focus {
+  background-color: #303030;
+  color: white;
+}
+
+.options {
+  text-align: center;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.startbtn {
+  background-color: white;
+  padding: 1em;
+  color: #303030;
+  font-size: 1em;
+  border: 2px solid #303030;
+  text-decoration: none;
+}
+
+.startbtn:hover {
+  background-color: #303030;
+  border: 2px solid #303030;
+  color: white;
+}
+
+hr {
+  width: 75%;
+}

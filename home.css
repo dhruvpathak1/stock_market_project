@@ -28,7 +28,13 @@
   display: block;
   width: 100%;
   text-align: center;
-  padding: 5em;
+  padding: 1em;
+}
+
+.iconlogo {
+  text-align: center;
+  padding-bottom: 3em;
+  height: 30%;
 }
 
 body {

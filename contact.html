@@ -7,11 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="contact.css">
+    <link rel="icon" href="./logo.jpg">
     <title>Contact Us</title>
 </head>
 
 <body>
     <div class="nav">
+        <img src="./logo.jpg" alt="logo" class="iconlogo">
+        <br>
         <a href="home.html" class="btn">Home</a>
         <a href="#" class="btn">Watchlist</a>
         <a href="schooling.html" class="btn">Stock School</a>
@@ -19,35 +22,25 @@
         <a href="#" class="btn">Contact</a>
     </div>
 
-    <ul>
-        <li>
-            <a class="facebook" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li>
-            <a class="twitter" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li>
-            <a class="instagram" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
+    <form class="form">
+        <h2 class="titlecontact">Contact Us</h2>
+        <input placeholder="Name"></input><br><br>
+        <input placeholder="Email"></input><br><br>
+        <input placeholder="Message"></input><br><br>
+        <button class="sendbtn">Send Message</button>
+        <div class="contact">
+            <span class="fa fa-phone"></span>5847 45777
+            <span class="fa fa-envelope-o"></span> contact@interestment.com
+        </div>
+    </form>
+
+    <div class="social-container">
+        <ul class="social-icons">
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </div>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap");
+
 * {
   -webkit-transition-property: all;
   -webkit-transition-duration: 0.2s;
@@ -28,7 +30,14 @@
   display: block;
   width: 100%;
   text-align: center;
-  padding: 5em;
+  padding: 1em;
+  margin-bottom: -10em;
+}
+
+.iconlogo {
+  text-align: center;
+  padding-bottom: 3em;
+  height: 27%;
 }
 
 body {
@@ -37,18 +46,22 @@ body {
   flex-flow: wrap;
   font-family: "Ubuntu", sans-serif;
 }
+
 body * {
   box-sizing: border-box;
 }
+
 .card-container {
   flex: 250px;
   margin: 30px;
 }
+
 .card-container .card {
   font-weight: bold;
   position: relative;
   width: 100%;
 }
+
 .card-container .card a {
   padding: 30px;
   width: 100%;
@@ -60,38 +73,48 @@ body * {
   display: block;
   transition: 0.25s ease;
 }
+
 .card-container .card a:hover {
   transform: translate(-30px, -30px);
   border-color: #5bc0eb;
 }
+
 .card-container .card a:hover .card--display {
   display: none;
 }
+
 .card-container .card a:hover .card--hover {
   display: block;
 }
+
 .card-container .card a .card--display i {
   font-size: 60px;
   margin-top: 200px;
 }
+
 .card-container .card a .card--display h2 {
   margin: 20px 0 0;
 }
+
 .card-container .card a .card--hover {
   display: none;
 }
+
 .card-container .card a .card--hover h2 {
   margin: 20px 0;
 }
+
 .card-container .card a .card--hover p {
   font-weight: normal;
   line-height: 1.5;
 }
+
 .card-container .card a .card--hover p.link {
   margin: 20px 0 0;
   font-weight: bold;
   color: #5bc0eb;
 }
+
 .card-container .card .card--border {
   position: absolute;
   width: 100%;
@@ -101,11 +124,19 @@ body * {
   border: 2px dashed black;
   z-index: -1;
 }
+
 .card-container .card.card--dark a {
   color: white;
   background-color: black;
   border-color: black;
 }
+
 .card-container .card.card--dark a .card--hover .link {
   color: #fde74c;
+}
+
+.quote {
+  color: #5bc0eb;
+  font-family: "Tangerine", cursive;
+  font-size: 4.5em;
 }

@@ -115,17 +115,18 @@ section#formHolder {
 
 .brand .success-msg p {
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 600;
   font-family: "Raleway", sans-serif;
 }
 
 .brand .success-msg a {
   font-size: 12px;
+  font-weight: 400;
   text-transform: uppercase;
   padding: 8px 30px;
-  background: #f95959;
+  background: rgb(0, 255, 200);
   text-decoration: none;
-  color: #fff;
+  color: black;
   border-radius: 30px;
 }
 
