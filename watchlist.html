@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./logo.jpg">
+    <link rel="stylesheet" href="home.css">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="watchlist.css">
+    <title>Watchlist</title>
+</head>
+
+<body>
+    <div class="nav">
+        <img src="./logo.jpg" alt="logo" class="iconlogo">
+        <br>
+        <a href="home.html" class="btn">Home</a>
+        <a href="search.html" class="btn">Search</a>
+        <a href="#" class="btn">Watchlist</a>
+        <a href="schooling.html" class="btn">Stock School</a>
+        <a href="contact.html" class="btn">Contact</a>
+    </div>
+
+    <div class="displaydata">
+        <button onclick=dsplywtchlst(); class="btn1">Display</button>
+        <p id="user"></p>
+        <table id="demo"></table>
+    </div>
+</body>
+<script src="login.js"></script>
+
+</html>

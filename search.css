@@ -1,0 +1,117 @@
+.btn {
+  color: white;
+  background: #303030;
+  padding: 10px 20px;
+  font-size: 12px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  border: none;
+  background: rgba(0, 0, 0, 1);
+  background: #fff;
+  padding: 20px 20px;
+  color: #303030;
+}
+
+.nav {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1em;
+  margin-bottom: -5em;
+}
+
+.iconlogo {
+  text-align: center;
+  padding-bottom: 3em;
+  height: 30%;
+}
+
+body {
+  padding: 50px;
+  display: flex;
+  flex-flow: wrap;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.searching {
+  text-align: center;
+  width: 100%;
+}
+
+.stocksearch {
+  display: inline;
+  width: 35%;
+  border: 2px solid black;
+  border-radius: 0.2em;
+  padding: 1.2em;
+  margin-bottom: 3em;
+}
+
+.search {
+  border: none;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bolder;
+  background-color: rgb(163, 229, 255);
+  border: 2px solid black;
+  padding: 1.2em;
+  color: black;
+  letter-spacing: 2px;
+}
+
+.search:hover {
+  background-color: rgb(0, 183, 255);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bolder;
+}
+
+.btn1,
+.btn2 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bolder;
+  padding: 1em;
+  border: 2px solid black;
+  margin: 0.4em;
+}
+
+.btn1 {
+  background-color: rgb(169, 255, 226);
+}
+
+.btn1:hover {
+  background-color: rgb(0, 255, 170);
+}
+
+.btn2 {
+  background-color: rgb(255, 218, 114);
+}
+
+.btn2:hover {
+  background-color: rgb(255, 183, 0);
+}
+
+#demo {
+  text-align: center;
+  margin-top: 2em;
+  width: 100%;
+  border: none;
+}
+
+tr,
+th,
+td {
+  padding: 0.5em;
+  border: none;
+}
+
+tr:nth-child(even) {
+  background-color: #e4e4e4;
+}
+
+th {
+  background-color: black;
+  color: white;
+}

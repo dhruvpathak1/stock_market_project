@@ -1,13 +1,5 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
 
-* {
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
-  -moz-transition-property: all;
-  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
-}
-
 .btn {
   color: white;
   background: #303030;
@@ -87,7 +79,7 @@ body {
   height: 60px;
   border-radius: 100%;
   display: block;
-  background: linear-gradient(45deg, #00b5f5, #002a8f);
+  background: linear-gradient(to right, rgb(49, 49, 49), rgb(8, 64, 148));
   transition: all 265ms ease-out;
 }
 
@@ -101,7 +93,7 @@ body {
   -ms-transform: scale(2.2);
   -webkit-transform: scale(2.2);
   color: #00b5f5;
-  background: -webkit-linear-gradient(45deg, #00b5f5, #002a8f);
+  background: linear-gradient(to right, rgb(49, 49, 49), rgb(8, 64, 148));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 265ms ease-in;
@@ -111,7 +103,7 @@ body {
   width: 600px;
   height: 360px;
   border-radius: 8px;
-  box-shadow: 0 0 40px -10px #002a8f;
+  box-shadow: 6px 6px 16px rgb(0, 31, 77);
   margin: auto;
   padding: 20px 30px;
   max-width: calc(100vw - 40px);
@@ -168,7 +160,7 @@ button:hover {
   position: absolute;
   bottom: -10px;
   left: -20px;
-  background: -webkit-linear-gradient(45deg, #00b5f5, #002a8f);
+  background: linear-gradient(to right, rgb(49, 49, 49), rgb(8, 64, 148));
   color: #fff;
   width: 320px;
   padding: 16px 4px 16px 0;

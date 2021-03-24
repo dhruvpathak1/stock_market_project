@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap");
 
-* {
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
-  -moz-transition-property: all;
-  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
-}
-
 .btn {
   color: white;
   background: #303030;
@@ -76,7 +68,7 @@ body * {
 
 .card-container .card a:hover {
   transform: translate(-30px, -30px);
-  border-color: #5bc0eb;
+  border-color: black;
 }
 
 .card-container .card a:hover .card--display {
@@ -136,7 +128,24 @@ body * {
 }
 
 .quote {
-  color: #5bc0eb;
+  color: #00b3ff;
   font-family: "Tangerine", cursive;
   font-size: 4.5em;
+  text-shadow: 0.5px 0.5px black;
+}
+
+#one {
+  background: linear-gradient(white, rgb(255, 164, 164));
+}
+
+#two {
+  background: linear-gradient(white, rgb(180, 180, 255));
+}
+
+#three {
+  background: linear-gradient(white, rgb(255, 255, 176));
+}
+
+#four {
+  background: linear-gradient(white, rgb(169, 255, 169));
 }

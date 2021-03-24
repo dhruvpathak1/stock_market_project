@@ -1,11 +1,3 @@
-* {
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
-  -moz-transition-property: all;
-  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
-}
-
 .btn {
   color: white;
   background: #303030;
@@ -29,6 +21,7 @@
   width: 100%;
   text-align: center;
   padding: 1em;
+  margin-bottom: -7.5em;
 }
 
 .iconlogo {
@@ -42,4 +35,109 @@ body {
   display: flex;
   flex-flow: wrap;
   font-family: "Ubuntu", sans-serif;
+}
+
+.title {
+  letter-spacing: 3.5px;
+  padding: 1em;
+  border-radius: 1em;
+  margin: 0;
+}
+
+.interest1,
+.interest2,
+.interest3,
+.interest4,
+.interest5,
+.interest6,
+.interest7,
+.end {
+  text-align: center;
+  padding: 1em;
+  margin: 0.75em;
+  font-weight: 50;
+  letter-spacing: 3.5px;
+  width: 200px;
+  background-color: white;
+}
+
+.interest1 {
+  border: 3px solid red;
+  color: red;
+}
+
+.interest2 {
+  border: 3px solid blue;
+  color: blue;
+}
+.interest3 {
+  border: 3px solid indigo;
+  color: indigo;
+}
+.interest4 {
+  border: 3px solid green;
+  color: green;
+}
+.interest5 {
+  border: 3px solid orange;
+  color: orange;
+}
+.interest6 {
+  border: 3px solid black;
+  color: black;
+}
+.interest7 {
+  border: 3px solid gold;
+  color: gold;
+}
+
+.interest1:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.interest2:hover {
+  background-color: blue;
+  color: #fff;
+}
+.interest3:hover {
+  background-color: indigo;
+  color: #fff;
+}
+.interest4:hover {
+  background-color: green;
+  color: #fff;
+}
+.interest5:hover {
+  background-color: orange;
+  color: #fff;
+}
+.interest6:hover {
+  background-color: black;
+  color: #fff;
+}
+.interest7:hover {
+  background-color: gold;
+  color: #fff;
+}
+
+.end {
+  background-color: #4d4d4d;
+  border: 2px solid #4d4d4d;
+  color: #fff;
+  border-radius: 2em;
+}
+
+.end:hover {
+  background-color: #181818;
+}
+
+.line {
+  width: 70%;
+  text-align: center;
+}
+
+.options {
+  text-align: center;
+  width: 100%;
 }

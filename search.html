@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Basic Alpha Vantage script with user data entry">
+  <meta name="date" content="2018-01-14">
+  <link rel="icon" href="./logo.jpg">
+  <link rel="stylesheet" href="search.css">
+  <title>Search</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <link rel="stylesheet" href="sidebar.css">
+  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+</head>
+
+<body>
+  <div class="nav">
+    <img src="./logo.jpg" alt="logo" class="iconlogo">
+    <br>
+    <a href="home.html" class="btn">Home</a>
+    <a href="#" class="btn">Search</a>
+    <a href="watchlist.html" class="btn">Watchlist</a>
+    <a href="schooling.html" class="btn">Stock School</a>
+    <a href="contact.html" class="btn">Contact</a>
+  </div>
+
+  <section class="searching">
+
+    <input id=inpSymbol placeholder="Search Stock..." class="stocksearch">
+    <button onclick=getAlphaVantagesymbol(); class="search">SEARCH</button><br>
+
+    <select id="sel" class="stocksearch">
+      <option value="">Choose Your Stock...</option>
+    </select>
+
+    <p><button onclick=getAlphaVantagedata(); class="btn1">FETCH DATA</button>
+      <button onclick=save(); class="btn2">ADD TO WATCHLIST</button>
+    </p>
+    <br>
+    <table id="demo"></table>
+  </section>
+  <script src="login.js"></script>
+
+</body>
+
+</html>
