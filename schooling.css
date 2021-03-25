@@ -32,6 +32,32 @@
   height: 27%;
 }
 
+.left {
+  float: left;
+  margin: 0;
+}
+
+.right {
+  float: right;
+  margin: 0;
+  padding: 0.5em;
+  background-color: #4a4a4a;
+  color: #fff;
+  border: 2px solid #000000;
+  font-size: 1.2em;
+  border-radius: 0.1em;
+}
+
+.right:hover {
+  background-color: black;
+  color: #fff;
+}
+
+.topbar {
+  width: 100%;
+  font-family: "Ubuntu", sans-serif;
+}
+
 body {
   padding: 50px;
   display: flex;
@@ -148,4 +174,56 @@ body * {
 
 #four {
   background: linear-gradient(white, rgb(169, 255, 169));
+}
+
+@media screen and (max-width: 750px) {
+  .nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn {
+    display: block;
+    margin: 0.2em;
+  }
+
+  .nav {
+    margin-bottom: -10em;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    display: block;
+  }
+
+  .right {
+    margin-top: 1em;
+    padding: 0.2em;
+  }
+  .iconlogo {
+    text-align: center;
+    margin-top: 2em;
+    height: 10%;
+  }
+
+  .options {
+    margin-top: 5em;
+  }
+
+  .quote {
+    font-size: 2.5em;
+  }
+
+  .card-container .card a .card--hover p {
+    font-size: 0.7em;
+  }
+
+  /* .card-container .card a .card--display h2 {
+    font-size: 1.2em;
+  }
+
+  .card-container .card a .card--hover h2 {
+    font-size: 1.2em;
+  } */
 }

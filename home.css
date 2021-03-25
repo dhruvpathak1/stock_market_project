@@ -30,6 +30,32 @@
   height: 30%;
 }
 
+.left {
+  float: left;
+  margin: 0;
+}
+
+.right {
+  float: right;
+  margin: 0;
+  padding: 0.5em;
+  background-color: #4a4a4a;
+  color: #fff;
+  border: 2px solid #000000;
+  font-size: 1.2em;
+  border-radius: 0.1em;
+}
+
+.right:hover {
+  background-color: black;
+  color: #fff;
+}
+
+.topbar {
+  width: 100%;
+  font-family: "Ubuntu", sans-serif;
+}
+
 body {
   padding: 50px;
   display: flex;
@@ -48,10 +74,7 @@ body {
 .interest2,
 .interest3,
 .interest4,
-.interest5,
-.interest6,
-.interest7,
-.end {
+.interest5 {
   text-align: center;
   padding: 1em;
   margin: 0.75em;
@@ -82,14 +105,6 @@ body {
   border: 3px solid orange;
   color: orange;
 }
-.interest6 {
-  border: 3px solid black;
-  color: black;
-}
-.interest7 {
-  border: 3px solid gold;
-  color: gold;
-}
 
 .interest1:hover {
   background-color: red;
@@ -112,24 +127,24 @@ body {
   background-color: orange;
   color: #fff;
 }
-.interest6:hover {
-  background-color: black;
-  color: #fff;
-}
-.interest7:hover {
-  background-color: gold;
-  color: #fff;
-}
 
 .end {
-  background-color: #4d4d4d;
-  border: 2px solid #4d4d4d;
-  color: #fff;
-  border-radius: 2em;
+  background-color: #c2c2c2;
+  border: 2px solid #c2c2c2;
+  color: #000;
+  border: 2px solid black;
+  border-radius: 0.4em;
+  font-weight: 600;
+  padding: 1em;
+  margin: 0.5em;
+  text-align: center;
+  letter-spacing: 1.5px;
+  width: 150px;
 }
 
 .end:hover {
   background-color: #181818;
+  color: white;
 }
 
 .line {
@@ -140,4 +155,41 @@ body {
 .options {
   text-align: center;
   width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn {
+    display: block;
+    margin: 0.2em;
+  }
+
+  .nav {
+    margin-bottom: 2em;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    display: block;
+  }
+
+  .right {
+    margin-top: 1em;
+    padding: 0.2em;
+  }
+
+  .iconlogo {
+    text-align: center;
+    margin-top: 2em;
+    height: 10%;
+  }
+
+  .options {
+    margin-top: -10em;
+  }
 }
