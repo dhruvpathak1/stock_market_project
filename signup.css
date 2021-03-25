@@ -53,7 +53,7 @@ section#formHolder {
   top: 0;
   left: 0;
   background: #303030;
-  background-image: url("./loginbanner.jpg");
+  background-image: url("./loginbanner.jpeg");
   z-index: -1;
 }
 
