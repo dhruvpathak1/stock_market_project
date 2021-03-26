@@ -14,8 +14,14 @@
 
     <div class="nav">
         <div class="topbar">
-            <h2 class="left">Welcome</h2>
-            <button class="right">Logout</button>
+            <h2 class="left">Welcome!</h2>
+            <a href="./index.html"><button class="right" onclick="preventBack()">Logout</button></a>
+            <script type="text/javascript">
+                function preventBack() { window.history.forward(); }
+                setTimeout("preventBack()", 0);
+                window.onunload = function () { null };
+            </script>
+
         </div>
         <img src="./logo.jpeg" alt="logo" class="iconlogo">
         <br>
@@ -25,25 +31,226 @@
         <a href="schooling.html" class="btn">Stock School</a>
         <a href="contact.html" class="btn">Contact</a>
     </div>
-
-    <div class="options">
-
-        <button class="interest1">ENTERTAINMENT</button>
-        <button class="interest2">SPORTS</button>
-        <button class="interest4">FASHION</button>
-        <button class="interest3">ENERGY</button>
-        <button class="interest5">TECHNOLOGY</button><br>
-        <button class="interest3">FOOD</button>
-        <button class="interest1">HOSPITALITY</button>
-        <button class="interest2">AUTOMOBILES</button><br>
-        <button class="interest5">BANKS</button>
-        <button class="interest4">INSURANCE</button><br>
-        <br>
-
-        <h2 class="title">Tell us your Interest and we will help you <button class="end">INVEST.</button></h2>
-
+    <div id="btn">
     </div>
-
+    <div>
+        <table id="demo"></table>
+    </div>
 </body>
+<script>
+    var key = "";
+    var interest = new Array();
+    var firebaseConfig = {
+        apiKey: "AIzaSyC5CoVicRRoR1PVdqrZ1gyzF8Frl-LEyl8",
+        authDomain: "interestment-abd1e.firebaseapp.com",
+        projectId: "interestment-abd1e",
+        storageBucket: "interestment-abd1e.appspot.com",
+        messagingSenderId: "556429394380",
+        appId: "1:556429394380:web:7eeb865e358bc000d5dd69",
+        measurementId: "G-3B8GY1B70Y"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            var sec = document.getElementById("btn");
+            const db = firebase.firestore();
+            var user = firebase.auth().currentUser;
+            if (user != null) {
+                uid = user.uid;
+            }
+            db.collection("user").where("userid", "==", uid)
+                .get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        interest = doc.data().interests;
+                        for (i = 0; i < interest.length; i++) {
+                            var radio = document.createElement('div');
+                            var labelValue = document.createElement('label');
+                            labelValue.innerHTML = interest[i];
+                            var inputValue = document.createElement('input');
+                            inputValue.type = "radio";
+                            inputValue.name = "industry";
+                            console.log(interest[i]);
+                            inputValue.value = interest[i];
+                            inputValue.onchange = show;
+                            sec.appendChild(inputValue);
+                            sec.appendChild(labelValue);
+                        }
+                    });
+
+                });
+        }
+    });
+    function show() {
+        const db = firebase.firestore();
+        var syl = document.getElementsByName('industry');
+        var radval;
+        for (i = 0; i < syl.length; i++) {
+            if (syl[i].checked)
+                radval = syl[i].value;
+        }
+        var user = firebase.auth().currentUser;
+        if (user != null) {
+            uid = user.uid;
+        }
+        var sbl = new Array();
+        var i = 0, sname = "";
+        var demo = document.getElementById("demo");
+
+        var trh = document.createElement('tr');
+        var th0 = document.createElement('th');
+        var th1 = document.createElement('th');
+        var th2 = document.createElement('th');
+        var th3 = document.createElement('th');
+        var th4 = document.createElement('th');
+        var th5 = document.createElement('th');
+        var th6 = document.createElement('th');
+
+        th0.innerHTML = "Name";
+        th1.innerHTML = "Date";
+        th2.innerHTML = "Open";
+        th3.innerHTML = "High";
+        th4.innerHTML = "Low";
+        th5.innerHTML = "Close";
+        th6.innerHTML = "Volume";
+
+        trh.appendChild(th0);
+        trh.appendChild(th1);
+        trh.appendChild(th2);
+        trh.appendChild(th3);
+        trh.appendChild(th4);
+        trh.appendChild(th5);
+        trh.appendChild(th6);
+        demo.appendChild(trh);
+        db.collection("interests").where("industry", "==", radval)
+            .get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    sbl[i] = doc.data().symbol;
+                    sname = doc.data().name;
+                    key = doc.data().key;
+                    console.log(key);
+                    console.log(sname);
+                    getdata(sbl[i], sname);
+                    i++;
+                });
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+    }
+    function getdata(sbl, sname) {
+
+        var apiKey = key;
+        console.log(key);
+        const symbol = sbl;
+
+        const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + symbol + '&interval=1min&apikey=' + apiKey;
+
+        wtchdata(url, sname);
+
+    }
+    const wtchdata = async function (url, sname) {
+
+        var obj, dbParam, xmlhttp, myObj, x, txt = "";
+        obj = { table: "stock", limit: 20 };
+        dbParam = JSON.stringify(obj);
+        xmlhttp = new XMLHttpRequest();
+        /*xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            myObj = JSON.parse(this.responseText);
+            txt += "<table border='1'>"
+            for (x in myObj) {
+            txt += "<tr><td>" + myObj[x].open + "</td></tr>";
+            }
+            txt += "</table>"
+            document.getElementById("demo").innerHTML = txt;
+        }
+        };*/
+        xmlhttp.open('GET', url, true);
+        xmlhttp.onerror = function (xmlhttp) { console.log('error:', xmlhttp); };
+        xmlhttp.onprogress = function (xmlhttp) { console.log('bytes loaded:', xmlhttp.loaded); }; // or something
+        xmlhttp.onload = await callback1;
+        xmlhttp.send(null);
+
+        async function callback1(xmlhttp) {
+
+            let response, json, lines;
+
+            response = xmlhttp.target.response;
+            var x = document.getElementById('demo');
+            //demo.innerText = response;
+
+            json = await JSON.parse(response);
+
+            // console.log('json', json);
+
+            // console.log(json["Time Series (Daily)"]);
+
+            var flag = 0;
+
+            var demo = document.getElementById("demo");
+
+            for (var key in json["Time Series (Daily)"]) {
+                var val = json["Time Series (Daily)"][key];
+                console.log(json["Time Series (Daily)"]);
+                var tr = document.createElement('tr');
+                var td0 = document.createElement('td');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var td5 = document.createElement('td');
+                var td6 = document.createElement('td');
+
+                td0.innerHTML = sname;
+                td1.innerHTML = key;
+
+                td2.innerHTML = val["1. open"];
+                td3.innerHTML = val["2. high"];
+                td4.innerHTML = val["3. low"];
+                td5.innerHTML = val["4. close"];
+                td6.innerHTML = val["5. volume"];
+
+                tr.appendChild(td0);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+                demo.appendChild(tr);
+
+
+                flag += 1;
+                if (flag == 1) {
+                    break;
+                }
+            }
+        }
+        // setTimeout(function(){
+        //     window.location.reload();
+        // },4000)
+    }
+</script>
+<script>
+    // function logout() {
+    //     firebase.auth().signOut().then(() => {
+    //         // Sign-out successful.
+    //         swal({
+    //             title: "Logout",
+    //             text: "Logout Successful",
+    //             type: "success"
+    //         })
+    //         setTimeout(function () {
+    //             window.location.replace("index.html");
+    //         }, 1000)
+    //     }).catch((error) => {
+    //         // An error happened.
+    //     });
+    // }
+</script>
 
 </html>

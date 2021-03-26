@@ -75,11 +75,10 @@ function signUp(){
     var checkUserFullNameValid = userFullName.match(userFullNameFormate);
     var checkUserEmailValid = userEmail.match(userEmailFormate);
     var checkUserPasswordValid = userPassword.match(userPasswordFormate);
-    console.log(checkUserPasswordValid);
 
     if(checkUserFullNameValid == null){
         return checkUserFullName();
-    }else if(checkUserEmailValid == null){ 
+    }else if(checkUserEmailValid == null){
         return checkUserEmail();
     }else if(checkUserPasswordValid == null){
         return checkUserPassword();
@@ -98,15 +97,6 @@ function signUp(){
                 userPassword: userPassword,
                 userid: uid
             });
-            // });
-            // swal({
-            //     title: "Success",
-            //     text: "Registration Successful",
-            //     type: "success"
-            // })
-            // setTimeout(function(){
-            //     window.location.replace("search.html");
-            // }, 3000)
             swal({
                 title: "Success",
                 text: "Registration Successful",
@@ -412,7 +402,20 @@ function checkUserSIPassword(){
        }
 
    }
-   function save(){
+    const verify= async function(){
+       var check=0;
+       const db = firebase.firestore();
+    db.collection("watchlist").where("userid", "==", uid).where("symbol","==",symbl)
+    .get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        check=check+1;
+        })
+        return check;
+    });
+
+   }
+   const save=async function(){
        data= sel.options[sel.selectedIndex].value;
        data=data.split(" ");
        symbl=data[0];
@@ -426,6 +429,8 @@ function checkUserSIPassword(){
             if (user != null) {
                 uid = user.uid;
             }
+        var check = await verify();
+        if(check===0){
        db.collection("watchlist").doc().set({
            name: stock,
            symbol: symbl,
@@ -438,7 +443,11 @@ function checkUserSIPassword(){
     setTimeout(function(){
         window.location.reload();
     }, 1000)
-       
+    }
+    else{
+        window.alert("Stock Exist in watchlist");
+    }
+
     //    var container = document.getElementById('reset');
     //    container.appendChild(button);
            }
@@ -449,24 +458,52 @@ function dsplywtchlst(){
         uid = user.uid;
     }
     var sbl= new Array();
-    var i=0;
+    var i=0,sname="";
+    var demo = document.getElementById("demo");
+
+       var trh = document.createElement('tr');
+       var th0 = document.createElement('th');
+       var th1 = document.createElement('th');
+       var th2 = document.createElement('th');
+       var th3 = document.createElement('th');
+       var th4 = document.createElement('th');
+       var th5 = document.createElement('th');
+       var th6 = document.createElement('th');
+
+       th0.innerHTML = "Name";
+       th1.innerHTML = "Date";
+       th2.innerHTML = "Open";
+       th3.innerHTML = "High";
+       th4.innerHTML = "Low";
+       th5.innerHTML = "Close";
+       th6.innerHTML = "Volume";
+
+       trh.appendChild(th0);
+       trh.appendChild(th1);
+       trh.appendChild(th2);
+       trh.appendChild(th3);
+       trh.appendChild(th4);
+       trh.appendChild(th5);
+       trh.appendChild(th6);
+       demo.appendChild(trh);
+       console.log(uid);
     db.collection("watchlist").where("userid", "==", uid)
     .get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
             sbl[i]=doc.data().symbol;
-            getdata(sbl);
+            sname=doc.data().name;
+            console.log(sname);
+            getdata(sbl[i],sname);
+            i++;
         });
-        
-        document.getElementById("user").innerHTML=sbl;
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
 }
-function getdata(sbl) {
-    var demo = document.getElementById("demo");
-    demo.innerHTML=" ";
+function getdata(sbl,sname) {
+    
 
 const apiKey = "SUXUZFCXQ49QTM2I";
 
@@ -474,11 +511,11 @@ const symbol = sbl;
 
 const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + symbol + '&interval=1min&apikey=' + apiKey;
 
-wtchdata(url);
+wtchdata(url,sname);
 
 }
 
-function wtchdata(url) {
+function wtchdata(url,sname) {
 
 var obj, dbParam, xmlhttp, myObj, x, txt = "";
 obj = { table: "stock", limit: 20 };
@@ -518,33 +555,10 @@ function callback1(xmlhttp) {
     var flag = 0;
 
     var demo = document.getElementById("demo");
-
-    var trh = document.createElement('tr');
-    var th0 = document.createElement('th');
-    var th1 = document.createElement('th');
-    var th2 = document.createElement('th');
-    var th3 = document.createElement('th');
-    var th4 = document.createElement('th');
-    var th5 = document.createElement('th');
-
-    th0.innerHTML = "Date";
-    th1.innerHTML = "Open";
-    th2.innerHTML = "High";
-    th3.innerHTML = "Low";
-    th4.innerHTML = "Close";
-    th5.innerHTML = "Volume";
-
-    trh.appendChild(th0);
-    trh.appendChild(th1);
-    trh.appendChild(th2);
-    trh.appendChild(th3);
-    trh.appendChild(th4);
-    trh.appendChild(th5);
-    demo.appendChild(trh);
     
     for (var key in json["Time Series (Daily)"]) {
         var val = json["Time Series (Daily)"][key];
-
+        console.log(json["Time Series (Daily)"]);
         var tr = document.createElement('tr');
         var td0 = document.createElement('td');
         var td1 = document.createElement('td');
@@ -552,14 +566,16 @@ function callback1(xmlhttp) {
         var td3 = document.createElement('td');
         var td4 = document.createElement('td');
         var td5 = document.createElement('td');
+        var td6 = document.createElement('td');
 
-        td0.innerHTML = key;
+        td0.innerHTML=sname;
+        td1.innerHTML = key;
 
-        td1.innerHTML = val["1. open"];
-        td2.innerHTML = val["2. high"];
-        td3.innerHTML = val["3. low"];
-        td4.innerHTML = val["4. close"];
-        td5.innerHTML = val["5. volume"];
+        td2.innerHTML = val["1. open"];
+        td3.innerHTML = val["2. high"];
+        td4.innerHTML = val["3. low"];
+        td5.innerHTML = val["4. close"];
+        td6.innerHTML = val["5. volume"];
 
         tr.appendChild(td0);
         tr.appendChild(td1);
@@ -567,6 +583,7 @@ function callback1(xmlhttp) {
         tr.appendChild(td3);
         tr.appendChild(td4);
         tr.appendChild(td5);
+        tr.appendChild(td6);
         demo.appendChild(tr);
 
 
@@ -578,4 +595,60 @@ function callback1(xmlhttp) {
 
     }
 
+}
+function delte(){
+    const db = firebase.firestore();
+    var user = firebase.auth().currentUser;
+    if (user != null) {
+        uid = user.uid;
+    }
+    var contain=document.getElementById("contain");
+    contain.innerHTML="";
+    db.collection("watchlist").where("userid", "==", uid)
+    .get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            var radio=document.createElement('div');
+            var labelValue = document.createElement('label');
+            labelValue.innerHTML = doc.data().name;
+            var inputValue = document.createElement('input');
+            inputValue.type = "radio";
+            inputValue.name = "symbol";
+            inputValue.value= doc.data().symbol;
+            radio.appendChild(inputValue);
+            radio.appendChild(labelValue);
+            contain.appendChild(radio);
+            });
+    })
+    
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+}
+function getvalue(){
+    var syl = document.getElementsByName('symbol');
+            var radval,docid="0";
+            for(i = 0; i < syl.length; i++) {
+                if(syl[i].checked)
+                radval=syl[i].value;
+            }
+            var user = firebase.auth().currentUser;
+            if (user != null) {
+                uid = user.uid;
+            }
+    const db = firebase.firestore();
+    const ref=db.collection("watchlist");
+    ref.where("symbol","==", radval).where("userid", "==", uid)
+    .get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            doc.ref.delete();
+        swal({
+            title: "Delete",
+            text: "Delete Successful",
+            type: "success"
+        })
+        setTimeout(function(){
+            window.location.reload();
+        }, 1000)
+        });
+    });
 }

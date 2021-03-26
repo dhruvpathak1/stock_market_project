@@ -16,7 +16,7 @@
     <div class="nav">
         <div class="topbar">
             <h2 class="left">Welcome</h2>
-            <button class="right">Logout</button>
+            <button class="right" onclick="logout()">Logout</button>
         </div>
         <img src="./logo.jpeg" alt="logo" class="iconlogo">
         <br>
@@ -287,5 +287,22 @@
 
 
 </body>
+<script>
+    function logout() {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+            swal({
+                title: "Logout",
+                text: "Logout Successful",
+                type: "success"
+            })
+            setTimeout(function () {
+                window.location.replace("index.html");
+            }, 1000)
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
+</script>
 
 </html>
