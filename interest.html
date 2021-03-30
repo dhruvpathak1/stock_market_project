@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="./logo.jpeg">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>Interestment</title>
+    <title>Interestment</title>
+</head>
+
+<body>
+
+    <div class="hero-anime">
+        <div class="navigation-wrap bg-light start-header start-style">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="navbar navbar-expand-md navbar-light">
+
+                            <a class="navbar-brand" href="https://front.codes/" target="_blank">Interestment</a>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="#">Home</a>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./search.html">Search</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./watchlist.html">Watchlist</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./schooling.html">Stock School</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./contact.html">Contact</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <button class="nav-link logout" onclick="logout()">Logout</button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="options">
+
+        <button class="interest1" onclick="ent()">ENTERTAINMENT</button>
+        <button class="interest2" onclick="spo()">SPORTS</button>
+        <button class="interest4" onclick="fas()">FASHION</button>
+        <button class="interest3" onclick="ene()">ENERGY</button>
+        <button class="interest5" onclick="tec()">TECHNOLOGY</button><br>
+        <button class="interest3" onclick="foo()">FOOD</button>
+        <button class="interest1" onclick="hos()">HOSPITALITY</button>
+        <button class="interest2" onclick="aut()">AUTOMOBILES</button><br>
+        <button class="interest5" onclick="ban()">BANKS</button>
+        <button class="interest4" onclick="ins()">INSURANCE</button><br>
+        <br>
+
+        <h2 class="title">Tell us your Interest and we will help you <button class="end"
+                onclick="add()">INVEST.</button></h2>
+
+    </div>
+    <script>
+        var interest = new Array;
+        var loop = 0;
+        var keys = ["EUCEYAWMFBNKD0UU", "W3XMVAMUOUYH5T15", "R2X9TXW6RWS54PIL", "9FKK4SZ0N3JRBLU7", "5XOIIE82ZSR7GK50"];
+        var firebaseConfig = {
+            apiKey: "AIzaSyC5CoVicRRoR1PVdqrZ1gyzF8Frl-LEyl8",
+            authDomain: "interestment-abd1e.firebaseapp.com",
+            projectId: "interestment-abd1e",
+            storageBucket: "interestment-abd1e.appspot.com",
+            messagingSenderId: "556429394380",
+            appId: "1:556429394380:web:7eeb865e358bc000d5dd69",
+            measurementId: "G-3B8GY1B70Y"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        function ent() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "entertainment") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "entertainment";
+                loop++;
+            }
+        }
+        function spo() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "sports") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "sports";
+                loop++;
+            }
+        }
+        function fas() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "fashion") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "fashion";
+                loop++;
+            }
+        }
+        function ene() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "energy") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "energy";
+                loop++;
+            }
+        }
+        function tec() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "technology") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "technology";
+                loop++;
+            }
+        }
+        function foo() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "food") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "food";
+                loop++;
+            }
+        }
+        function hos() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "hospitality") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "hospitality";
+                loop++;
+            }
+        }
+        function aut() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "automobile") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "automobile";
+                loop++;
+            }
+        }
+        function ban() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "banking") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "banking";
+                loop++;
+            }
+        }
+        function ins() {
+            var local = 0;
+            for (i = 0; i < interest.length; i++) {
+                if (interest[i] === "insurance") {
+                    local++;
+                }
+            }
+            if (local > 0) {
+                window.alert("already added")
+            }
+            else {
+                interest[loop] = "insurance";
+                loop++;
+            }
+        }
+        function add() {
+            var user = firebase.auth().currentUser;
+            if (user != null) {
+                uid = user.uid;
+            }
+            var docid = "0";
+            console.log(uid);
+            const db = firebase.firestore();
+            const ref = db.collection("user");
+            ref.where("userid", "==", uid)
+                .get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        docid = doc.id;
+                        db.collection("user").doc(docid).update({
+                            interests: interest
+                        })
+                    });
+                });
+        }
+
+    </script>
+</body>
+
+</html>

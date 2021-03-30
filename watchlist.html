@@ -7,37 +7,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./logo.jpeg">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="watchlist.css">
     <title>Watchlist</title>
 </head>
 
 <body>
-    <div class="nav">
-        <div class="topbar">
-            <h2 class="left">Welcome</h2>
-            <button class="right" onclick="logout()">Logout</button>
+    <div class="hero-anime">
+        <div class="navigation-wrap bg-light start-header start-style">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="navbar navbar-expand-md navbar-light">
+
+                            <a class="navbar-brand" href="https://front.codes/" target="_blank">Interestment</a>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./home.html">Home</a>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./search.html">Search</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="#">Watchlist</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./schooling.html">Stock School</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./contact.html">Contact</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <button class="nav-link logout" onclick="logout()">Logout</button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
-        <img src="./logo.jpeg" alt="logo" class="iconlogo">
-        <br>
-        <a href="home.html" class="btn">Home</a>
-        <a href="search.html" class="btn">Search</a>
-        <a href="#" class="btn">Watchlist</a>
-        <a href="schooling.html" class="btn">Stock School</a>
-        <a href="contact.html" class="btn">Contact</a>
     </div>
+
     <div class="displaygrp">
         <button onclick=dsplywtchlst(); class="btn1">Display</button>
         <button onclick=delte(); class="btn1">Edit Watchlist</button>
-        <button onclick=getvalue(); class="btn1">Confirm</button>
+        <button onclick=getvalue(); id="confirm" class="btn1" style="opacity: 0;">Confirm</button>
         <table id="demo"></table>
     </div>
-    <div id="contain"></div>
+    <div id="contain">
+        <table id="demo"></table>
+    </div>
 </body>
 <script>
     localStorage.clear();
@@ -73,6 +111,11 @@
         });
     }
     function dsplywtchlst() {
+        var erase = document.getElementById("contain");
+        erase.innerHTML = "";
+        var erase2 = document.getElementById("demo");
+        erase2.innerHTML = "";
+        document.getElementById("confirm").style.opacity = "0";
         const db = firebase.firestore();
         var user = firebase.auth().currentUser;
         if (user != null) {
@@ -126,7 +169,7 @@
     function getdata(sbl, sname) {
 
 
-        const apiKey = "SUXUZFCXQ49QTM2I";
+        const apiKey = "EEDWBYFVU01OLBYY";
 
         const symbol = sbl;
 
@@ -218,6 +261,9 @@
 
     }
     function delte() {
+        document.getElementById("confirm").style.opacity = "1";
+        var erase = document.getElementById("demo");
+        erase.innerHTML = "";
         const db = firebase.firestore();
         var user = firebase.auth().currentUser;
         if (user != null) {
@@ -234,10 +280,19 @@
                     var inputValue = document.createElement('input');
                     inputValue.type = "radio";
                     inputValue.name = "symbol";
+                    inputValue.id = "radio1";
                     inputValue.value = doc.data().symbol;
                     radio.appendChild(inputValue);
                     radio.appendChild(labelValue);
                     contain.appendChild(radio);
+                    radio.style.width = "100%";
+                    radio.style.fontSize = "1.4em";
+                    radio.style.color = "gold";
+                    radio.style.backgroundColor = "black";
+                    radio.style.padding = "1em";
+                    radio.style.margin = "0.5em";
+                    radio.style.borderRadius = "0.1em";
+                    labelValue.style.textAlign = "center";
                 });
             })
 

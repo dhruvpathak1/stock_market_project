@@ -103,7 +103,7 @@ function signUp(){
                 type: "success"
             })
             setTimeout(function(){
-                window.location.replace("search.html");
+                window.location.replace("interest.html");
             }, 3000)
         })
             .catch((error) => {
@@ -291,7 +291,7 @@ function checkUserSIPassword(){
        var demo = document.getElementById("demo");
        demo.innerHTML=" ";
 
-   const apiKey = "SUXUZFCXQ49QTM2I";
+   const apiKey = "5DES6KMEO7Y63JBQ";
 
    const symbol = symbl;
 
@@ -411,8 +411,8 @@ function checkUserSIPassword(){
         // doc.data() is never undefined for query doc snapshots
         check=check+1;
         })
-        return check;
     });
+    return check;
 
    }
    const save=async function(){
@@ -451,204 +451,204 @@ function checkUserSIPassword(){
     //    var container = document.getElementById('reset');
     //    container.appendChild(button);
            }
-function dsplywtchlst(){
-    const db = firebase.firestore();
-    var user = firebase.auth().currentUser;
-    if (user != null) {
-        uid = user.uid;
-    }
-    var sbl= new Array();
-    var i=0,sname="";
-    var demo = document.getElementById("demo");
+// function dsplywtchlst(){
+//     const db = firebase.firestore();
+//     var user = firebase.auth().currentUser;
+//     if (user != null) {
+//         uid = user.uid;
+//     }
+//     var sbl= new Array();
+//     var i=0,sname="";
+//     var demo = document.getElementById("demo");
 
-       var trh = document.createElement('tr');
-       var th0 = document.createElement('th');
-       var th1 = document.createElement('th');
-       var th2 = document.createElement('th');
-       var th3 = document.createElement('th');
-       var th4 = document.createElement('th');
-       var th5 = document.createElement('th');
-       var th6 = document.createElement('th');
+//        var trh = document.createElement('tr');
+//        var th0 = document.createElement('th');
+//        var th1 = document.createElement('th');
+//        var th2 = document.createElement('th');
+//        var th3 = document.createElement('th');
+//        var th4 = document.createElement('th');
+//        var th5 = document.createElement('th');
+//        var th6 = document.createElement('th');
 
-       th0.innerHTML = "Name";
-       th1.innerHTML = "Date";
-       th2.innerHTML = "Open";
-       th3.innerHTML = "High";
-       th4.innerHTML = "Low";
-       th5.innerHTML = "Close";
-       th6.innerHTML = "Volume";
+//        th0.innerHTML = "Name";
+//        th1.innerHTML = "Date";
+//        th2.innerHTML = "Open";
+//        th3.innerHTML = "High";
+//        th4.innerHTML = "Low";
+//        th5.innerHTML = "Close";
+//        th6.innerHTML = "Volume";
 
-       trh.appendChild(th0);
-       trh.appendChild(th1);
-       trh.appendChild(th2);
-       trh.appendChild(th3);
-       trh.appendChild(th4);
-       trh.appendChild(th5);
-       trh.appendChild(th6);
-       demo.appendChild(trh);
-       console.log(uid);
-    db.collection("watchlist").where("userid", "==", uid)
-    .get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            sbl[i]=doc.data().symbol;
-            sname=doc.data().name;
-            console.log(sname);
-            getdata(sbl[i],sname);
-            i++;
-        });
-    })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
-}
-function getdata(sbl,sname) {
+//        trh.appendChild(th0);
+//        trh.appendChild(th1);
+//        trh.appendChild(th2);
+//        trh.appendChild(th3);
+//        trh.appendChild(th4);
+//        trh.appendChild(th5);
+//        trh.appendChild(th6);
+//        demo.appendChild(trh);
+//        console.log(uid);
+//     db.collection("watchlist").where("userid", "==", uid)
+//     .get().then((querySnapshot) => {
+//         querySnapshot.forEach((doc) => {
+//             // doc.data() is never undefined for query doc snapshots
+//             sbl[i]=doc.data().symbol;
+//             sname=doc.data().name;
+//             console.log(sname);
+//             getdata(sbl[i],sname);
+//             i++;
+//         });
+//     })
+//     .catch((error) => {
+//         console.log("Error getting documents: ", error);
+//     });
+// }
+// function getdata(sbl,sname) {
     
 
-const apiKey = "SUXUZFCXQ49QTM2I";
+// const apiKey = "SUXUZFCXQ49QTM2I";
 
-const symbol = sbl;
+// const symbol = sbl;
 
-const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + symbol + '&interval=1min&apikey=' + apiKey;
+// const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + symbol + '&interval=1min&apikey=' + apiKey;
 
-wtchdata(url,sname);
+// wtchdata(url,sname);
 
-}
+// }
 
-function wtchdata(url,sname) {
+// function wtchdata(url,sname) {
 
-var obj, dbParam, xmlhttp, myObj, x, txt = "";
-obj = { table: "stock", limit: 20 };
-dbParam = JSON.stringify(obj);
-xmlhttp = new XMLHttpRequest();
-/*xmlhttp.onreadystatechange = function () {
-if (this.readyState == 4 && this.status == 200) {
-    myObj = JSON.parse(this.responseText);
-    txt += "<table border='1'>"
-    for (x in myObj) {
-    txt += "<tr><td>" + myObj[x].open + "</td></tr>";
-    }
-    txt += "</table>"
-    document.getElementById("demo").innerHTML = txt;
-}
-};*/
-xmlhttp.open('GET', url, true);
-xmlhttp.onerror = function (xmlhttp) { console.log('error:', xmlhttp); };
-xmlhttp.onprogress = function (xmlhttp) { console.log('bytes loaded:', xmlhttp.loaded); }; // or something
-xmlhttp.onload = callback1;
-xmlhttp.send(null);
+// var obj, dbParam, xmlhttp, myObj, x, txt = "";
+// obj = { table: "stock", limit: 20 };
+// dbParam = JSON.stringify(obj);
+// xmlhttp = new XMLHttpRequest();
+// /*xmlhttp.onreadystatechange = function () {
+// if (this.readyState == 4 && this.status == 200) {
+//     myObj = JSON.parse(this.responseText);
+//     txt += "<table border='1'>"
+//     for (x in myObj) {
+//     txt += "<tr><td>" + myObj[x].open + "</td></tr>";
+//     }
+//     txt += "</table>"
+//     document.getElementById("demo").innerHTML = txt;
+// }
+// };*/
+// xmlhttp.open('GET', url, true);
+// xmlhttp.onerror = function (xmlhttp) { console.log('error:', xmlhttp); };
+// xmlhttp.onprogress = function (xmlhttp) { console.log('bytes loaded:', xmlhttp.loaded); }; // or something
+// xmlhttp.onload = callback1;
+// xmlhttp.send(null);
 
-function callback1(xmlhttp) {
+// function callback1(xmlhttp) {
 
-    let response, json, lines;
+//     let response, json, lines;
 
-    response = xmlhttp.target.response;
-    var x = document.getElementById('demo');
-    //demo.innerText = response;
+//     response = xmlhttp.target.response;
+//     var x = document.getElementById('demo');
+//     //demo.innerText = response;
 
-    json = JSON.parse(response);
+//     json = JSON.parse(response);
 
-    // console.log('json', json);
+//     // console.log('json', json);
 
-    // console.log(json["Time Series (Daily)"]);
+//     // console.log(json["Time Series (Daily)"]);
 
-    var flag = 0;
+//     var flag = 0;
 
-    var demo = document.getElementById("demo");
+//     var demo = document.getElementById("demo");
     
-    for (var key in json["Time Series (Daily)"]) {
-        var val = json["Time Series (Daily)"][key];
-        console.log(json["Time Series (Daily)"]);
-        var tr = document.createElement('tr');
-        var td0 = document.createElement('td');
-        var td1 = document.createElement('td');
-        var td2 = document.createElement('td');
-        var td3 = document.createElement('td');
-        var td4 = document.createElement('td');
-        var td5 = document.createElement('td');
-        var td6 = document.createElement('td');
+//     for (var key in json["Time Series (Daily)"]) {
+//         var val = json["Time Series (Daily)"][key];
+//         console.log(json["Time Series (Daily)"]);
+//         var tr = document.createElement('tr');
+//         var td0 = document.createElement('td');
+//         var td1 = document.createElement('td');
+//         var td2 = document.createElement('td');
+//         var td3 = document.createElement('td');
+//         var td4 = document.createElement('td');
+//         var td5 = document.createElement('td');
+//         var td6 = document.createElement('td');
 
-        td0.innerHTML=sname;
-        td1.innerHTML = key;
+//         td0.innerHTML=sname;
+//         td1.innerHTML = key;
 
-        td2.innerHTML = val["1. open"];
-        td3.innerHTML = val["2. high"];
-        td4.innerHTML = val["3. low"];
-        td5.innerHTML = val["4. close"];
-        td6.innerHTML = val["5. volume"];
+//         td2.innerHTML = val["1. open"];
+//         td3.innerHTML = val["2. high"];
+//         td4.innerHTML = val["3. low"];
+//         td5.innerHTML = val["4. close"];
+//         td6.innerHTML = val["5. volume"];
 
-        tr.appendChild(td0);
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tr.appendChild(td3);
-        tr.appendChild(td4);
-        tr.appendChild(td5);
-        tr.appendChild(td6);
-        demo.appendChild(tr);
+//         tr.appendChild(td0);
+//         tr.appendChild(td1);
+//         tr.appendChild(td2);
+//         tr.appendChild(td3);
+//         tr.appendChild(td4);
+//         tr.appendChild(td5);
+//         tr.appendChild(td6);
+//         demo.appendChild(tr);
 
 
-        flag += 1;
-        if (flag == 1) {
-        break;
-        }
-    }
+//         flag += 1;
+//         if (flag == 1) {
+//         break;
+//         }
+//     }
 
-    }
+//     }
 
-}
-function delte(){
-    const db = firebase.firestore();
-    var user = firebase.auth().currentUser;
-    if (user != null) {
-        uid = user.uid;
-    }
-    var contain=document.getElementById("contain");
-    contain.innerHTML="";
-    db.collection("watchlist").where("userid", "==", uid)
-    .get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            var radio=document.createElement('div');
-            var labelValue = document.createElement('label');
-            labelValue.innerHTML = doc.data().name;
-            var inputValue = document.createElement('input');
-            inputValue.type = "radio";
-            inputValue.name = "symbol";
-            inputValue.value= doc.data().symbol;
-            radio.appendChild(inputValue);
-            radio.appendChild(labelValue);
-            contain.appendChild(radio);
-            });
-    })
+// }
+// function delte(){
+//     const db = firebase.firestore();
+//     var user = firebase.auth().currentUser;
+//     if (user != null) {
+//         uid = user.uid;
+//     }
+//     var contain=document.getElementById("contain");
+//     contain.innerHTML="";
+//     db.collection("watchlist").where("userid", "==", uid)
+//     .get().then((querySnapshot) => {
+//         querySnapshot.forEach((doc) => {
+//             var radio=document.createElement('div');
+//             var labelValue = document.createElement('label');
+//             labelValue.innerHTML = doc.data().name;
+//             var inputValue = document.createElement('input');
+//             inputValue.type = "radio";
+//             inputValue.name = "symbol";
+//             inputValue.value= doc.data().symbol;
+//             radio.appendChild(inputValue);
+//             radio.appendChild(labelValue);
+//             contain.appendChild(radio);
+//             });
+//     })
     
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
-}
-function getvalue(){
-    var syl = document.getElementsByName('symbol');
-            var radval,docid="0";
-            for(i = 0; i < syl.length; i++) {
-                if(syl[i].checked)
-                radval=syl[i].value;
-            }
-            var user = firebase.auth().currentUser;
-            if (user != null) {
-                uid = user.uid;
-            }
-    const db = firebase.firestore();
-    const ref=db.collection("watchlist");
-    ref.where("symbol","==", radval).where("userid", "==", uid)
-    .get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            doc.ref.delete();
-        swal({
-            title: "Delete",
-            text: "Delete Successful",
-            type: "success"
-        })
-        setTimeout(function(){
-            window.location.reload();
-        }, 1000)
-        });
-    });
-}
+//     .catch((error) => {
+//         console.log("Error getting documents: ", error);
+//     });
+// }
+// function getvalue(){
+//     var syl = document.getElementsByName('symbol');
+//             var radval,docid="0";
+//             for(i = 0; i < syl.length; i++) {
+//                 if(syl[i].checked)
+//                 radval=syl[i].value;
+//             }
+//             var user = firebase.auth().currentUser;
+//             if (user != null) {
+//                 uid = user.uid;
+//             }
+//     const db = firebase.firestore();
+//     const ref=db.collection("watchlist");
+//     ref.where("symbol","==", radval).where("userid", "==", uid)
+//     .get().then((querySnapshot) => {
+//         querySnapshot.forEach((doc) => {
+//             doc.ref.delete();
+//         swal({
+//             title: "Delete",
+//             text: "Delete Successful",
+//             type: "success"
+//         })
+//         setTimeout(function(){
+//             window.location.reload();
+//         }, 1000)
+//         });
+//     });
+// }

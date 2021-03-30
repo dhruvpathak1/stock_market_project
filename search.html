@@ -17,27 +17,60 @@
     }
   </style>
   <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <div class="nav">
-    <div class="topbar">
-      <h2 class="left">Welcome</h2>
-      <button class="right" onclick="logout()">Logout</button>
+  <div class="hero-anime">
+    <div class="navigation-wrap bg-light start-header start-style">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="navbar navbar-expand-md navbar-light">
+
+              <a class="navbar-brand" href="https://front.codes/" target="_blank">Interestment</a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="./home.html">Home</a>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="#">Search</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="./watchlist.html">Watchlist</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="./schooling.html">Stock School</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="./contact.html">Contact</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <button class="nav-link logout" onclick="logout()">Logout</button>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
     </div>
-    <img src="./logo.jpeg" alt="logo" class="iconlogo">
-    <br>
-    <a href="home.html" class="btn">Home</a>
-    <a href="#" class="btn">Search</a>
-    <a href="watchlist.html" class="btn">Watchlist</a>
-    <a href="schooling.html" class="btn">Stock School</a>
-    <a href="contact.html" class="btn">Contact</a>
   </div>
 
   <section class="searching">
@@ -53,7 +86,10 @@
       <button onclick=save(); class="btn2">ADD TO WATCHLIST</button>
     </p>
     <br>
-    <table id="demo"></table>
+    <div class="overtable">
+      <table id="demo"></table>
+    </div>
+
   </section>
   <script src="login.js"></script>
 

@@ -176,8 +176,9 @@
                             </div>
 
                             <div class="CTA">
-                                <input type="button" value="Login" onclick="login()" ;>
-                                <a href="#" class="switch">I'm New</a>
+                                <input type="button" value="Login" onclick="login()" ;><br>
+                                <input type="button" value="forget password" onclick="forgetpass()"></button><br>
+                                <a href="#" class="switch">I'm New</a><br>
                             </div>
                         </form>
                     </div>
@@ -225,6 +226,35 @@
         </section>
 
     </div>
+    <script>
+    function forgetpass(){
+    var emailid=document.getElementById("email").value;
+    const db = firebase.firestore();
+    const ref=db.collection("user");
+    ref.where("userEmail", "==", emailid)
+    .get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(emailid);
+            firebase.auth().sendPasswordResetEmail(emailid).then(cred => {
+                swal({
+                                title: "Reset",
+                                text: "Reset Link Set Successful",
+                                type: "success"
+                            })
+                            setTimeout(function(){
+                                window.location.reload();
+                            }, 1000)
+                            }); 
+        });
+    })
+    .catch((error) => {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              window.alert(errorMessage);
+    });
+}
+    </script>
     <script src="./login.js"></script>
 </body>
 
