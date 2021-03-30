@@ -265,6 +265,18 @@ th {
   color: white;
 }
 
+.dropping {
+  text-align: center;
+}
+
+#select {
+  padding: 1em;
+  width: 70%;
+  margin: 0.5em;
+  text-transform: uppercase;
+  border: 5px double black;
+}
+
 #id {
   width: 100%;
   font-size: 2em;
