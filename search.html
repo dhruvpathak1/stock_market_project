@@ -8,6 +8,8 @@
   <meta name="date" content="2018-01-14">
   <link rel="icon" href="./logo.jpeg">
   <link rel="stylesheet" href="search.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>Search</title>
   <style>
     table,
@@ -16,6 +18,8 @@
       border: 1px solid black;
     }
   </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
   <link rel="stylesheet" href="sidebar.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
@@ -38,7 +42,7 @@
           <div class="col-12">
             <nav class="navbar navbar-expand-md navbar-light">
 
-              <a class="navbar-brand" href="#">Interestment</a>
+              <a class="navbar-brand" href="https://front.codes/" target="_blank">Interestment</a>
 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,6 +66,9 @@
                     <a class="nav-link" href="./contact.html">Contact</a>
                   </li>
                   <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="./profile.html">Edit Profile</a>
+                </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                     <button class="nav-link logout" onclick="logout()">Logout</button>
                   </li>
                 </ul>
@@ -75,19 +82,29 @@
 
   <section class="searching">
 
-    <input id=inpSymbol placeholder="Search Stock..." class="stocksearch">
-    <button onclick=getAlphaVantagesymbol(); class="search">SEARCH</button><br>
+    <div class="searchBox">
+      <input class="searchInput"type="text" name="" placeholder="Search" id="inpSymbol">
+      <button class="searchButton" onclick="getAlphaVantagesymbol()">
+          <i class="material-icons">
+            search
+          </i>
+      </button>
+    </div>
+    <br>
 
-    <select id="sel" class="stocksearch">
-      <option value="">Choose Your Stock...</option>
-    </select>
-
-    <p><button onclick=getAlphaVantagedata(); class="btn1">FETCH DATA</button>
-      <button onclick=save(); class="btn2">ADD TO WATCHLIST</button>
+    <p>
+      <select id="sel" class="stocksearch" onchange="getAlphaVantagedata()">
+        <option value="None" selected>Choose Your Stock...</option>
+      </select>
+      <button onclick=save(); class="btn2" data-toggle="tooltip" data-placement="top" title="Add To Watchlist"><i class="material-icons">
+        add
+      </i></button>
     </p>
     <br>
     <div class="overtable">
+      <div class="scroll">
       <table id="demo"></table>
+      </div>
     </div>
 
   </section>
@@ -95,6 +112,9 @@
 
 </body>
 <script>
+  $(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
   function logout() {
     firebase.auth().signOut().then(() => {
       // Sign-out successful.

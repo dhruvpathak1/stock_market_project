@@ -30,7 +30,7 @@
                     <div class="col-12">
                         <nav class="navbar navbar-expand-md navbar-light">
 
-                            <a class="navbar-brand" href="#">Interestment</a>
+                            <a class="navbar-brand" href="https://front.codes/" target="_blank">Interestment</a>
 
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -55,6 +55,9 @@
                                         <a class="nav-link" href="./contact.html">Contact</a>
                                     </li>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="./profile.html">Edit Profile</a>
+                                    </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                         <button class="nav-link logout" onclick="logout()">Logout</button>
                                     </li>
                                 </ul>
@@ -66,15 +69,16 @@
             </div>
         </div>
     </div>
-
     <div class="displaygrp">
-        <button onclick=dsplywtchlst(); class="btn1">Display</button>
-        <button onclick=delte(); class="btn1">Edit Watchlist</button>
+        <div class ="btngrp"> 
+            <button onclick=dsplywtchlst(); class="horizontal"><span  class="text">Display</span></button>
+            <button onclick=delte(); class="vertical"><span class="text">Edit Watchlist</span></button>
+        </div>
         <button onclick=getvalue(); id="confirm" class="btn1" style="opacity: 0;">Confirm</button>
+        <div class="scroll">
         <table id="demo"></table>
-    </div>
-    <div id="contain">
-        <table id="demo"></table>
+        <div id="contain"></div>
+        </div>
     </div>
 </body>
 <script>
@@ -110,6 +114,7 @@
             // An error happened.
         });
     }
+        
     function dsplywtchlst() {
         var erase = document.getElementById("contain");
         erase.innerHTML = "";
@@ -290,7 +295,7 @@
                     radio.style.color = "gold";
                     radio.style.backgroundColor = "black";
                     radio.style.padding = "1em";
-                    radio.style.margin = "0.5em";
+                    radio.style.margin = "0em";
                     radio.style.borderRadius = "0.1em";
                     labelValue.style.textAlign = "center";
                 });
@@ -329,6 +334,5 @@
             });
     }
 </script>
-<script src="login.js"></script>
 
 </html>

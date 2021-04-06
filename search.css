@@ -162,7 +162,7 @@
 
 .stocksearch {
   display: inline;
-  width: 35%;
+  width: 50%;
   border: 2px solid black;
   border-radius: 0.2em;
   padding: 1.2em;
@@ -186,26 +186,23 @@
   font-family: "Ubuntu", sans-serif;
   font-weight: bolder;
 }
-
 .btn1,
 .btn2 {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: bolder;
-  padding: 1em;
+  padding: 0;
   border: 2px solid black;
   margin: 0.4em;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  background: white;
 }
-
 .btn1 {
   background-color: rgb(169, 255, 226);
 }
 
 .btn1:hover {
   background-color: rgb(0, 255, 170);
-}
-
-.btn2 {
-  background-color: rgb(255, 218, 114);
 }
 
 .btn2:hover {
@@ -239,4 +236,121 @@ th {
   height: auto;
   margin: auto;
   overflow: scroll;
+}
+/* width */		
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.scroll {
+  display: block;
+  border: 0px solid red;
+  padding: 5px;
+  margin-top: 5px;
+  width: 100%;
+  height: 200px;
+  overflow-y: scroll;
+}
+.searchBox {
+  position: relative;
+  width: 80%;
+  height: 40px;
+  left: 50%;
+  transform:  translate(-50%,50%);
+  background: #444444;
+  padding: auto;
+  border-left-style: ridge;
+  border-left-color: #fafafa;
+  border-left-width: 7px;
+  margin: 10px;
+}
+.searchBox:hover > .searchInput {
+  width: 750px;
+  padding: 0 6px;
+  background: #444444;
+  color: white;
+}
+
+.searchBox:hover > .searchButton {
+background: white;
+color : #2f3640;
+display: inline;
+border-left: solid;
+}
+
+.searchButton {
+  color: white;
+  float: right;
+  width: 40px;
+  height: 40px;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+}
+
+.searchInput {
+  border:none;
+  background: #444444;
+  outline:none;
+  float:left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.1s;
+  line-height: 40px;
+  width: 100px;
+
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+  width: 240px;
+  padding: 0 6px;
+}
+.searchBox:hover > .searchButton {
+  background: white;
+  color : #2f3640;
+  display: inline;
+  }
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 48px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }

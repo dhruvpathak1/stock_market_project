@@ -103,7 +103,7 @@ function signUp(){
                 type: "success"
             })
             setTimeout(function(){
-                window.location.replace("home.html");
+                window.location.replace("interest.html");
             }, 3000)
         })
             .catch((error) => {
@@ -268,8 +268,6 @@ function checkUserSIPassword(){
        // console.log('json', json);
 
        // console.log(json["Time Series (Daily)"]);
-       var sel = document.getElementById("sel");
-       sel.innerHTML="--Select--";
        for (var key in json["bestMatches"]) {
          var val = json["bestMatches"][key];
        //   var option = document.createElement("option");
@@ -419,6 +417,11 @@ function checkUserSIPassword(){
        data= sel.options[sel.selectedIndex].value;
        data=data.split(" ");
        symbl=data[0];
+       console.log(data);
+       if(data=="None"){
+           window.alert("No value selected");
+       }
+       else{
        const db = firebase.firestore();
        db.settings({ timestampsInSnapshots: true });  // to not get errors in console
 
@@ -450,6 +453,7 @@ function checkUserSIPassword(){
 
     //    var container = document.getElementById('reset');
     //    container.appendChild(button);
+}
            }
 // function dsplywtchlst(){
 //     const db = firebase.firestore();
