@@ -273,7 +273,7 @@ th {
 }
 
 .searchBox {
-  width: 45%;
+  width: 80%;
   padding: 0.1em 0em 0.1em 0.5em;
   text-align: center;
   margin: auto;
@@ -286,7 +286,7 @@ th {
 }
 
 .searchInput {
-  width: 90%;
+  width: 85%;
   padding: 0em;
   border: none;
   background: rgb(255, 255, 255);
@@ -311,17 +311,26 @@ th {
   border: 2px solid rgb(0, 0, 0);
 }
 
-@media screen and (max-width: 620px) {
-  .searchBox:hover > .searchInput {
-    width: 240px;
-    padding: 0 6px;
+@media screen and (max-width: 580px) {
+  .searchBox {
+    width: 95%;
   }
-  .searchBox:hover > .searchButton {
-    background: white;
-    color: #2f3640;
-    display: inline;
+
+  .searchInput {
+    width: 80%;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .searchBox {
+    width: 95%;
+  }
+
+  .searchInput {
+    width: 60%;
+  }
+}
+
 .material-icons {
   font-family: "Material Icons";
   font-weight: normal;
