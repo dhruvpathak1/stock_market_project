@@ -21,5 +21,16 @@ The aim of this section is to help the users get familiar with the terminology a
 #### 5. Contact Us
 For any quiries or requests, the user can contact us throught the given form.
 
-### SRS Document and APK file available.
+## Data Flow Diagram (DFD)
 
+![DFD Level 0](images/dfd_lvl0.png)
+
+![DFD Level 1](images/dfd_lvl1.png)
+
+![DFD Level 2](images/dfd_lvl2.png)
+
+## State Level Diagram
+
+![State Level Diagram](images/state_diagram.png)
+
+## SRS Document and APK file available.
