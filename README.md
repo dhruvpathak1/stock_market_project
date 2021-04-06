@@ -20,6 +20,8 @@ Users can view and edit their watchlist.
 The aim of this section is to help the users get familiar with the terminology and basic questions about the stock market.
 #### 5. Contact Us
 For any quiries or requests, the user can contact us throught the given form.
+#### 6. Editing
+User can update their username and add more interests to their profile.
 
 ## Working of the project and data flow is as given below:
 
