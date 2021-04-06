@@ -25,7 +25,7 @@ User can update their username and add more interests to their profile.
 
 ## Working of the project and data flow is as given below:
 
-### State Level Diagram
+### State Chart Diagram
 
 ![State Level Diagram](images/state_diagram.png)
 
