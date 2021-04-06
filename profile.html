@@ -40,7 +40,7 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ml-auto py-4 py-md-0">
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                        <a class="nav-link" href="#">Home</a>
+                                        <a class="nav-link" href="./home.html">Home</a>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                         <a class="nav-link" href="./search.html">Search</a>
                                     </li>
@@ -54,7 +54,7 @@
                                         <a class="nav-link" href="./contact.html">Contact</a>
                                     </li>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                        <a class="nav-link" href="./profile.html">Edit Profile</a>
+                                        <a class="nav-link" href="#">Edit Profile</a>
                                     </li>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                         <button class="nav-link logout" onclick="logout()">Logout</button>
@@ -132,7 +132,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "entertainment";
@@ -147,7 +147,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "sports";
@@ -162,7 +162,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "fashion";
@@ -177,7 +177,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "energy";
@@ -192,7 +192,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "technology";
@@ -207,7 +207,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "food";
@@ -222,7 +222,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "hospitality";
@@ -237,7 +237,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "automobile";
@@ -252,7 +252,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "banking";
@@ -267,7 +267,7 @@
             }
         }
         if (local > 0) {
-            window.alert("already added")
+            window.alert("Already Added")
         }
         else {
             interest[loop] = "insurance";
@@ -317,6 +317,22 @@
                 window.location.reload();
             }, 1000);
         }
+    }
+
+    function logout() {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+            swal({
+                title: "Logout",
+                text: "Logout Successful",
+                type: "success"
+            })
+            setTimeout(function () {
+                window.location.replace("index.html");
+            }, 1000)
+        }).catch((error) => {
+            // An error happened.
+        });
     }
 </script>
 
