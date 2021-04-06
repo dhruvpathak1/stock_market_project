@@ -103,7 +103,7 @@ function signUp(){
                 type: "success"
             })
             setTimeout(function(){
-                window.location.replace("interest.html");
+                window.location.replace("home.html");
             }, 3000)
         })
             .catch((error) => {
