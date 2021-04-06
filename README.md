@@ -33,4 +33,4 @@ For any quiries or requests, the user can contact us throught the given form.
 
 ![State Level Diagram](images/state_diagram.png)
 
-## SRS Document and APK file available.
+# SRS Document and APK file available.
