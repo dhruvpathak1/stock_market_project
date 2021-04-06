@@ -17,7 +17,7 @@ This page is used to search any GLOBAL stock and fetch their data from the last 
 #### 3. Watchlist
 Users can view and edit their watchlist.
 #### 4. Stock School
-The aim of this section is to help users get familiar with the terminology and basic questions about the stock market.
+The aim of this section is to help the users get familiar with the terminology and basic questions about the stock market.
 #### 5. Contact Us
 For any quiries or requests, the user can contact us throught the given form.
 
