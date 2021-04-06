@@ -169,24 +169,24 @@
 }
 
 .interest1 {
-  border: 3px solid red;
+  border: 1px solid red;
   color: red;
 }
 
 .interest2 {
-  border: 3px solid blue;
+  border: 1px solid blue;
   color: blue;
 }
 .interest3 {
-  border: 3px solid indigo;
+  border: 1px solid indigo;
   color: indigo;
 }
 .interest4 {
-  border: 3px solid green;
+  border: 1px solid green;
   color: green;
 }
 .interest5 {
-  border: 3px solid orange;
+  border: 1px solid orange;
   color: orange;
 }
 
@@ -211,83 +211,92 @@
   background-color: orange;
   color: #fff;
 }
-.box{
-    margin: 20px;
-    text-align: center;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    background:hsla(67, 95%, 95%, 1);
-    border:solid 5px rgb(31, 28, 28);
+.box {
+  margin: 3em;
+  padding: 2em;
+  text-align: center;
+  border-radius: 0.2em;
+  background: white;
+  border: 5px double rgb(31, 28, 28);
 }
 :root {
-    --base-color: rgba(255, 255, 255, 1);
-    --hover-color: rgb(15, 11, 11);
-  }
-  
-  .horizontal {
-    background: black;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    display: inline;
-    width: 30%;
-    height: 80px;
-    border: 10px solid rgba(255, 255, 255, 1);
-    font-size: 1rem;
-    cursor: pointer;
-  }
-    
-  .horizontal > .text {
-      position: relative;
-      color: transparent;
-      background-image: linear-gradient(
-        90deg,
-        var(--hover-color) 0%,
-        var(--hover-color) 50%,
-        var(--base-color) 50%,
-        var(--base-color) 100%
-      );
-      background-repeat: repeat;
-      background-size: 200%;
-      background-position: 100% 0;
-      -webkit-background-clip: text;
-      background-clip: text;
-      transition: background-position 500ms;
-    }
-    .horizontal ::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--base-color);
-      transform-origin: 100% 0;
-      transform: scale3d(0, 1, 1);
-      transition: transform 300ms;
-    }
-    
-    .horizontal:hover .text {
-        background-position: 0 0;
-      }
-  
-      .horizontal:hover::before {
-        transform-origin: 0 0;
-        transform: scale3d(1, 1, 1);
-      }
-      .horizontal:hover{
-        background: white;
-      }
-      .btngrp{
-        position: relative;
-        text-align: center;
-        width: 100%;
-        margin-top: 10px;
-      }
-input{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid rgb(0, 0, 0);
-  }
+  --base-color: rgba(255, 255, 255, 1);
+  --hover-color: rgb(15, 11, 11);
+}
+
+.horizontal {
+  background: black;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: inline;
+  width: 30%;
+  height: 80px;
+  border: 10px solid rgba(255, 255, 255, 1);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.horizontal > .text {
+  position: relative;
+  color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    var(--hover-color) 0%,
+    var(--hover-color) 50%,
+    var(--base-color) 50%,
+    var(--base-color) 100%
+  );
+  background-repeat: repeat;
+  background-size: 200%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-position 500ms;
+}
+.horizontal ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--base-color);
+  transform-origin: 100% 0;
+  transform: scale3d(0, 1, 1);
+  transition: transform 300ms;
+}
+
+.horizontal:hover .text {
+  background-position: 0 0;
+}
+
+.horizontal:hover::before {
+  transform-origin: 0 0;
+  transform: scale3d(1, 1, 1);
+}
+.horizontal:hover {
+  background: white;
+}
+.btngrp {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.edit {
+  text-align: center;
+}
+
+#editname {
+  width: 50%;
+}

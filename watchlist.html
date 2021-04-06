@@ -30,7 +30,7 @@
                     <div class="col-12">
                         <nav class="navbar navbar-expand-md navbar-light">
 
-                            <a class="navbar-brand" href="https://front.codes/" target="_blank">Interestment</a>
+                            <a class="navbar-brand">Interestment</a>
 
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -70,14 +70,14 @@
         </div>
     </div>
     <div class="displaygrp">
-        <div class ="btngrp"> 
-            <button onclick=dsplywtchlst(); class="horizontal"><span  class="text">Display</span></button>
+        <div class="btngrp">
+            <button onclick=dsplywtchlst(); class="horizontal"><span class="text">Display</span></button>
             <button onclick=delte(); class="vertical"><span class="text">Edit Watchlist</span></button>
         </div>
         <button onclick=getvalue(); id="confirm" class="btn1" style="opacity: 0;">Confirm</button>
         <div class="scroll">
-        <table id="demo"></table>
-        <div id="contain"></div>
+            <table id="demo"></table>
+            <div id="contain"></div>
         </div>
     </div>
 </body>
@@ -114,7 +114,7 @@
             // An error happened.
         });
     }
-        
+
     function dsplywtchlst() {
         var erase = document.getElementById("contain");
         erase.innerHTML = "";
