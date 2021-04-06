@@ -43,4 +43,4 @@ Level 2
 
 ![DFD Level 2](images/dfd_lvl2.png)
 
-# SRS Document and APK file available.
+# SRS Document and APK file can be found in this repository.
