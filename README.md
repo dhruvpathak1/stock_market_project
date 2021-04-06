@@ -8,7 +8,7 @@ Interestment is a project focused on the stock market in the financial domain. I
 # Android App (apk): 
 
 The project has a LogIn / SignUp with the database connected to Firebase. It also has a FORGOT PASSWORD feature that sends an email to reset passoword to the registered email.
-There are 5 sections in the project.
+There are 5 sections in the project a user can interact with after logging in. These sections are as follows:
 
 #### 1. Home: 
 It has a dropdown menu that has different sectors like Banks, Sports etc. The goal is to group stocks for users based on their INTERESTS. 
