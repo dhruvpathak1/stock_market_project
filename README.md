@@ -5,7 +5,7 @@
 Interestment is a project focused on the stock market in the financial domain. It aims to assist investors having a diversified portfolio with stocks from various global markets purchased using different demat accounts. The project is focused for users with zero to little stock market knowledge. The simple and minimal design aims to help users understand the working of the stock market, learn basic terms and understand the key metrics of different shares without the complex graphs and highly complex metrics.
 
 # Website: https://interestment.web.app
-# Android App (apk): 
+# Android App (APK): 
 
 The project has a LogIn / SignUp with the database connected to Firebase. It also has a FORGOT PASSWORD feature that sends an email to reset passoword to the registered email.
 There are 5 sections in the project a user can interact with after logging in. These sections are as follows:
@@ -29,10 +29,13 @@ For any quiries or requests, the user can contact us throught the given form.
 
 ### Data Flow Diagram (DFD)
 
+Level 0
 ![DFD Level 0](images/dfd_lvl0.png)
 
+Level 1
 ![DFD Level 1](images/dfd_lvl1.png)
 
+Level 2
 ![DFD Level 2](images/dfd_lvl2.png)
 
 # SRS Document and APK file available.
