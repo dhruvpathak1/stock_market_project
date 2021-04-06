@@ -244,7 +244,7 @@
 
 #demo {
   text-align: center;
-  margin-top: 2em;
+  /* margin-top: 2em; */
   width: 100%;
   border: none;
 }
@@ -290,7 +290,7 @@ input[type="radio"] {
 #btn {
   margin: 2em;
 }
-/* width */		
+/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
