@@ -1,46 +1,47 @@
-# stock_market_project
+# **Interestment: Simplified Stock Market Tracking and Education**
 
-### HTML, CSS, Javascript, Firebase and Alpha Vantage API
 
-Interestment is a project focused on the stock market in the financial domain. It aims to assist investors having a diversified portfolio with stocks from various global markets purchased using different demat accounts. The project is focused for users with zero to little stock market knowledge. The simple and minimal design aims to help users understand the working of the stock market, learn basic terms and understand the key metrics of different shares without the complex graphs and highly complex metrics.
 
-# Website: https://interestment.web.app
-# Android App (APK): 
+### **Project Overview**
 
-The project has a LogIn / SignUp with the database connected to Firebase. It also has a FORGOT PASSWORD feature that sends an email to reset password to the registered email.
-There are 5 sections in the project a user can interact with after logging in. These sections are as follows:
+Interestment is a full-stack web and mobile application designed to assist new and inexperienced investors in navigating the stock market. The project provides a simple, minimal, and user-friendly platform for learning about stocks, tracking a diversified portfolio, and making informed decisions without the complexity of traditional financial tools. By focusing on core metrics and easy-to-understand data, Interestment aims to demystify the stock market and empower users to confidently manage their investments.
 
-#### 1. Home: 
-It has a dropdown menu that has different sectors like Banks, Sports etc. The goal is to group stocks for users based on their INTERESTS. 
-#### 2. Search:
-This page is used to search any GLOBAL stock and fetch their data from the last 5 days. A user can also add the stock to their watchlist.
-#### 3. Watchlist
-Users can view and edit their watchlist.
-#### 4. Stock School
-The aim of this section is to help the users get familiar with the terminology and basic questions about the stock market.
-#### 5. Contact Us
-For any queries or requests, the user can contact us through the given form.
-#### 6. Editing
-User can update their username and add more interests to their profile.
 
-## Working of the project and data flow is as given below:
 
-### State Chart Diagram
+### **Technical Stack**
 
-![State Level Diagram](images/state_diagram.png)
+* **Frontend**: HTML, CSS, JavaScript
+* **Backend & Database**: Firebase
+* **Data API**: Alpha Vantage API
 
-### Data Flow Diagram (DFD)
 
-Level 0
 
-![DFD Level 0](images/dfd_lvl0.png)
+### **Key Features**
 
-Level 1
+* **User Authentication**: Secure user registration and login functionality powered by Firebase, including a **"Forgot Password"** feature that sends a reset link to the user's registered email.
+* **Sector-Based Stock Grouping**: The **Home** section features a dropdown menu that categorizes stocks by sectors like Banks, Sports, etc., allowing users to explore investment opportunities based on their personal interests.
+* **Global Stock Search**: The **Search** page enables users to find any global stock and retrieve its data from the last five days. Users can also add stocks to their personal watchlist directly from this page.
+* **Personalized Watchlist**: The **Watchlist** section allows users to view, manage, and edit their selected stocks, providing a centralized place to track their portfolio.
+* **Educational Content**: The **Stock School** section offers a valuable resource for beginners, helping them become familiar with fundamental stock market terminology and frequently asked questions.
+* **Contact and Profile Management**: A **Contact Us** form is available for user queries, and an **Editing** feature allows users to update their username and add more interests to their profile.
 
-![DFD Level 1](images/dfd_lvl1.png)
 
-Level 2
 
-![DFD Level 2](images/dfd_lvl2.png)
+### **System Architecture and Data Flow**
 
-# SRS Document and APK file can be found in this repository.
+The project's architecture is meticulously documented to illustrate the flow of data and application state. The repository includes:
+
+* **State Chart Diagram**
+* **Data Flow Diagram (DFD)**: Levels 0, 1, and 2
+
+![State Level Diagram](https://github.com/dhruvpathak1/stock_market_project/raw/main/images/state_diagram.png)
+![DFD Level 0](https://github.com/dhruvpathak1/stock_market_project/raw/main/images/dfd_lvl0.png)
+![DFD Level 1](https://github.com/dhruvpathak1/stock_market_project/raw/main/images/dfd_lvl1.png)
+![DFD Level 2](https://github.com/dhruvpathak1/stock_market_project/raw/main/images/dfd_lvl2.png)
+
+
+
+### **Additional Resources**
+
+* **Live Website**: [https://interestment.web.app](https://interestment.web.app)
+* **Project Documentation**: The complete **SRS Document** and **Android App (APK)** file are available within this repository.
